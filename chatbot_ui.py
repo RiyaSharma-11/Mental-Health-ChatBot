@@ -3,6 +3,36 @@ import json, os, hashlib
 
 # ---------------- Page Config ----------------
 st.set_page_config(page_title="Mental Health Chatbot", page_icon="💬", layout="wide")
+# Force Streamlit to use light mode and make all text black
+st.markdown("""
+<style>
+/* Force light mode */
+:root {
+    color-scheme: light !important;
+}
+
+/* Force all text to black */
+html, body, [class*="st-"], div, span, p, h1, h2, h3, h4, h5, h6, label {
+    color: black !important;
+}
+
+/* Optional: light background for everything */
+.stApp {
+    background-color: #FFFFFF !important;
+}
+section[data-testid="stSidebar"] {
+    background-color: #E6F9F2 !important;
+}
+
+/* Ensure chat input and sidebar buttons are readable */
+textarea, input, button {
+    color: black !important;
+    background-color: white !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
+
 
 # ---------------- Helper Functions ----------------
 USERS_FILE = "users.json"
@@ -194,3 +224,4 @@ if st.session_state.show_booking:
     st.subheader("🔒 Confidential Help")
     st.markdown("📞 Call: **1800-599-0019**")
     st.markdown("➡️ [Book a confidential counseling session](https://example.com)")
+
